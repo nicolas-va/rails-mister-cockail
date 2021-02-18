@@ -4,8 +4,12 @@ class CocktailsController < ApplicationController
     @cocktails = Cocktail.all
   end
 
+  def show
+    @cocktails = Cocktail.find(params[:cocktails_id])
+  end
+
   def new
-    @cocktails = Cockail.new
+    @cocktails = Cocktail.new
   end
 
 
@@ -14,6 +18,8 @@ class CocktailsController < ApplicationController
     @cocktails.save
     redirectect_to cockails_path(@cockails)
   end
+
+
 
 
   private
