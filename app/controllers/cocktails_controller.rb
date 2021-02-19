@@ -5,18 +5,18 @@ class CocktailsController < ApplicationController
   end
 
   def show
-    @cocktails = Cocktail.find(params[:cocktails_id])
+    @cocktail = Cocktail.find(params[:id])
   end
 
   def new
-    @cocktails = Cocktail.new
+    @cocktail = Cocktail.new
   end
 
 
   def create
-    @cocktails = Cocktail.new(cocktails_params)
-    @cocktails.save
-    redirectect_to cockails_path(@cockails)
+    @cocktail = Cocktail.new(cocktail_params)
+    @cocktail.save
+    redirectect_to cockail_path(@cockail)
   end
 
 
@@ -24,8 +24,8 @@ class CocktailsController < ApplicationController
 
   private
 
-  def cocktails_params
-    params.require(:cockails).permit(:name)
+  def cocktail_params
+    params.require(:cockail).permit(:name)
   end
 
 end
